@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: black;
+        }
+        h1{
+            color: aqua;
+        }
+      
+    button{
+        background-color: rgb(104, 130, 130);
+    }
+    p{
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <h1>Welcome <%=name%></h1>
+    <%for(var i=0;i<timeresp.length;i++){%>
+        <%if(timeresp[i].user==name){%>
+            
+            <p><%=timeresp[i].work%>     <%=timeresp[i].time%></p>
+            <form action="/removing" method="post">
+           
+                <input type="text" name="work" value="<%=timeresp[i].work%>">
+                <button name="name" value="<%=timeresp[i].user%>" type="submit">Done</button>
+            </form>
+            
+  
+        <%}%>
+    <%}%>
+    <div class="contaner">
+        <form action="/adding" method="post">
+        <input type="text" name="work" placeholder="Work">
+        <input  type="time" name="time" placeholder="timing">
+        <button name="button" type="submit" value="<%=name%>">+</button>
+    </form>
+        
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html>
